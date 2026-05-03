@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e7e2d9",
+                    "secondary": "#7c563b",
+                    "inverse-surface": "#32302a",
+                    "inverse-primary": "#a1d1b8",
+                    "outline-variant": "#c0c9c2",
+                    "on-surface-variant": "#414944",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dfd9d1",
+                    "tertiary-container": "#5e3f00",
+                    "on-background": "#1d1b16",
+                    "background": "#fff9ef",
+                    "surface-container-high": "#ede7de",
+                    "tertiary": "#412a00",
+                    "primary": "#023625",
+                    "surface-variant": "#e7e2d9",
+                    "surface-container-low": "#f9f3ea",
+                    "on-secondary-fixed": "#2f1502",
+                    "outline": "#717973",
+                    "primary-fixed": "#bceed3",
+                    "primary-fixed-dim": "#a1d1b8",
+                    "on-tertiary-fixed": "#281800",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdeae",
+                    "surface-bright": "#fff9ef",
+                    "on-secondary-container": "#795338",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#3a6753",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f6f0e7",
+                    "primary-container": "#1f4d3a",
+                    "tertiary-fixed-dim": "#f0be71",
+                    "surface": "#fff9ef",
+                    "secondary-fixed-dim": "#efbc9b",
+                    "on-secondary-fixed-variant": "#623f25",
+                    "on-primary-fixed-variant": "#214f3c",
+                    "on-primary-fixed": "#002114",
+                    "surface-container": "#f3ede4",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "on-tertiary-container": "#daab5f",
+                    "secondary-fixed": "#ffdcc6",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#8dbda4",
+                    "on-surface": "#1d1b16",
+                    "secondary-container": "#fecaa8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "container-max": "1440px",
+                    "margin-edge": "64px",
+                    "unit": "8px",
+                    "section-padding": "120px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Cormorant Garamond"],
+                    "headline-md": ["Cormorant Garamond"],
+                    "display-lg": ["Cormorant Garamond"],
+                    "body-lg": ["Poppins"],
+                    "label-caps": ["Poppins"],
+                    "headline-lg": ["Cormorant Garamond"],
+                    "body-md": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .cinematic-shadow {
+            box-shadow: 0 40px 60px -15px rgba(2, 54, 37, 0.12);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 249, 239, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- TopNavBar -->
+<style>
+.su-nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.su-nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    border-bottom: 2px solid #023625;
+    transform: scaleX(0);
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+.su-nav-link:hover::before, .su-nav-link.active::before {
+    transform: scaleX(1);
+}
+.su-btn {
+    transition: all 0.3s ease;
+    border-radius: 50rem;
+}
+.su-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.su-icon-wrapper {
+    transition: all 0.3s ease;
+}
+.offcanvas-toggle:hover .su-icon-wrapper {
+    color: #023625;
+}
+</style>
+
+<header class="fixed top-0 left-0 w-full z-50 bg-[#fff9ef]/95 backdrop-blur-md border-b border-[#023625]/10 shadow-sm transition-all duration-500">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-16 flex justify-between items-center py-4">
+        <a href="index.html" class="text-xl md:text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl text-decoration-none">
+            The Chennai Sanctuary
+        </a>
+        <nav class="hidden lg:flex items-center space-x-10">
+            <a href="index.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">residences</a>
+            <a href="Experiences.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">experiences</a>
+            <a href="Wellness.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">wellness</a>
+            <a href="Gastronomy.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide active text-amber-600">gastronomy</a>
+        </nav>
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="#" class="su-btn hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-label-caps uppercase tracking-widest text-sm">
+                Book Now
+            </a>
+            <button class="offcanvas-toggle bg-transparent border-0 p-2 cursor-pointer flex items-center justify-center">
+                <span class="su-icon-wrapper text-emerald-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Offcanvas Sidebar -->
+<div id="offcanvas" class="fixed top-0 right-0 h-full w-[300px] sm:w-[400px] bg-[#fff9ef] shadow-2xl z-[60] translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] overflow-y-auto">
+    <div class="p-8 md:p-12 flex flex-col h-full">
+        <div class="flex justify-between items-center mb-10">
+            <div class="text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl">The Chennai Sanctuary</div>
+            <button id="close-offcanvas" class="min-w-[48px] shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover:rotate-90 transition-transform duration-400 cursor-pointer border-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+            </button>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="mb-10">
+            <ul class="flex flex-col gap-6 list-none p-0 m-0">
+                <li><a href="index.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Residences</a></li>
+                <li><a href="Experiences.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Experiences</a></li>
+                <li><a href="Wellness.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Wellness</a></li>
+                <li><a href="Gastronomy.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors active text-amber-600">Gastronomy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Offcanvas Overlay -->
+<div id="offcanvas-overlay" class="fixed inset-0 bg-black/40 z-[55] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[921px] overflow-hidden">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, low-angle shot of a luxury dining veranda overlooking the Bay of Bengal at sunset. The lighting is warm and golden, casting long shadows across reclaimed wood tables and woven chairs. Tropical palms frame the scene, and the overall aesthetic is one of quiet luxury, focusing on natural materials and a serene, high-end atmosphere." src="img1.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-end px-6 md:px-margin-edge pb-24 max-w-container-max mx-auto">
+<span class="font-label-caps text-label-caps text-on-primary mb-4 block">CULINARY SANCTUARY</span>
+<h1 class="font-display-lg text-[48px] md:text-[84px] leading-tight md:leading-none text-on-primary max-w-4xl">The Soul of South Indian Fine Dining.</h1>
+</div>
+</section>
+<!-- Featured Venue: The Tides Veranda -->
+<section class="py-section-padding px-6 md:px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+<div class="md:col-span-7 relative order-last md:order-none">
+<div class="aspect-square md:aspect-[4/5] overflow-hidden rounded-lg cinematic-shadow">
+<img class="w-full h-full object-cover" data-alt="An exquisite close-up of a signature South Indian dish served on a handcrafted ceramic plate. The dish features a perfectly seared scallop with a turmeric-infused coconut foam and micro-greens. The background is a soft-focus luxury restaurant interior with gold accents and wood textures, reflecting a minimalist and cinematic quiet luxury aesthetic." src="img2.jpeg"/>
+</div>
+<div class="absolute -bottom-12 -right-12 hidden md:block w-72 h-96 overflow-hidden border-8 border-surface-container-low cinematic-shadow">
+<img class="w-full h-full object-cover" data-alt="A detailed shot of a luxury cocktail being prepared at a bar made of dark wood and brass. The lighting is moody and focused, highlighting the golden liquid and a delicate botanical garnish. The scene conveys an atmosphere of exclusivity and architectural precision within a high-end tropical retreat." src="img3.jpeg"/>
+</div>
+</div>
+<div class="md:col-span-5 flex flex-col gap-8">
+<span class="font-label-caps text-label-caps text-secondary">SIGNATURE VENUE</span>
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary">The Tides Veranda</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Perched at the water's edge, The Tides Veranda reimagines traditional coastal flavors through a contemporary lens. Each dish is a tribute to the Bay of Bengal, crafted with heritage ingredients and avant-garde techniques.
+                    </p>
+<div class="flex flex-col gap-4 py-8 border-y border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-body-md text-body-md">Chef’s Tasting Menu Available</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="sunny">sunny</span>
+<span class="font-body-md text-body-md">Al Fresco Oceanfront Seating</span>
+</div>
+</div>
+<button class="w-fit border border-secondary text-secondary px-10 py-4 font-label-caps text-label-caps hover:bg-secondary hover:text-on-secondary transition-all duration-400">
+                        EXPLORE THE MENU
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Other Venues -->
+<section class="bg-surface-container-low py-section-padding">
+<div class="px-6 md:px-margin-edge max-w-container-max mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-4">Epicurean Journeys</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">From intimate garden alcoves to high-energy lounges, discover a world of flavors curated for the discerning palate.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[350px] md:auto-rows-auto md:h-[800px]">
+<!-- Venue 1 -->
+<div class="md:row-span-2 group relative overflow-hidden rounded-xl cinematic-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Interior of a luxury tea lounge called The Amber Room. Large floor-to-ceiling windows look out onto a lush tropical garden. The furniture consists of low-slung velvet chairs in earthy tones and minimalist marble coffee tables. The space is bathed in soft afternoon light, emphasizing the quiet luxury and architectural precision of the resort." src="img4.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-on-primary">The Amber Room</h3>
+<p class="font-body-md text-on-primary/80 mt-2">Artisanal teas and heritage snacks in a botanical setting.</p>
+</div>
+</div>
+<!-- Venue 2 -->
+<div class="group relative overflow-hidden rounded-xl cinematic-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated cocktail bar at night, lit by amber-tinted pendant lights that cast a warm glow on the polished wood counter. The aesthetic is cinematic and intimate, with a shelf of premium spirits blurred in the background. The mood is one of upscale relaxation and exclusive luxury." src="img5.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-on-primary text-xl md:text-2xl">Vesper Lounge</h3>
+<p class="font-body-md text-on-primary/80 mt-2">Prohibition-style cocktails with local spices.</p>
+</div>
+</div>
+<!-- Venue 3 -->
+<div class="group relative overflow-hidden rounded-xl cinematic-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An open-concept breakfast kitchen in a luxury resort, featuring high-end stainless steel equipment contrasted with warm wood cabinetry and fresh tropical fruit displays. Natural morning light floods the space, creating a bright and inviting atmosphere that feels both professional and serene." src="img6.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-on-primary text-xl md:text-2xl">The Pantry</h3>
+<p class="font-body-md text-on-primary/80 mt-2">Farm-to-table morning rituals.</p>
+</div>
+</div>
+<!-- Venue 4 -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl cinematic-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle shot of an elegant dining room featuring large circular tables set with pristine white linen and gold-rimmed glassware. The room is modern yet warm, with architectural lighting and subtle South Indian design motifs integrated into the wall panels. The setting is luxurious and peaceful, perfect for high-net-worth individuals." src="img.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-on-primary">Heritage Hall</h3>
+<p class="font-body-md text-on-primary/80 mt-2">Grand celebratory dining in a historic-inspired setting.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Elegant Menu Preview -->
+<section class="py-section-padding px-6 md:px-margin-edge max-w-container-max mx-auto bg-background">
+<div class="flex flex-col md:flex-row gap-20">
+<div class="md:w-1/3">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">THE PREVIEW</span>
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-6">Seasonal Highlights</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our menu evolves with the lunar calendar, ensuring every ingredient is harvested at its absolute peak.</p>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+<!-- Menu Item -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline border-b border-secondary/20 pb-2">
+<h4 class="font-headline-md text-xl md:text-2xl text-primary">Tanjore Spiced Lobster</h4>
+<span class="font-body-md text-secondary">₹4,200</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm italic">Butter-poached lobster, curry leaf dust, fermented mango emulsion.</p>
+</div>
+<!-- Menu Item -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline border-b border-secondary/20 pb-2">
+<h4 class="font-headline-md text-xl md:text-2xl text-primary">Sacred Grove Mushrooms</h4>
+<span class="font-body-md text-secondary">₹2,800</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm italic">Wild foraged mushrooms, truffle ghee, crispy peppercorn lace.</p>
+</div>
+<!-- Menu Item -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline border-b border-secondary/20 pb-2">
+<h4 class="font-headline-md text-xl md:text-2xl text-primary">Kovalam Black Sea Bass</h4>
+<span class="font-body-md text-secondary">₹3,900</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm italic">Pan-seared bass, coconut ginger broth, pickled radish blossoms.</p>
+</div>
+<!-- Menu Item -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline border-b border-secondary/20 pb-2">
+<h4 class="font-headline-md text-xl md:text-2xl text-primary">Rosewater Pearl Kulfi</h4>
+<span class="font-body-md text-secondary">₹1,800</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm italic">Hand-churned kulfi, edible gold leaf, cardamom-infused honey.</p>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 md:py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-[1440px] mx-auto bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 mt-32">
+<div class="flex flex-col gap-6">
+<div class="text-xl font-serif italic text-emerald-900 dark:text-stone-50">
+                The Chennai Sanctuary
+            </div>
+<p class="font-sans text-sm tracking-widest uppercase text-stone-500">
+                © 2024 The Chennai Sanctuary. An Unparalleled Retreat.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-sans text-sm tracking-widest uppercase text-emerald-900 dark:text-stone-100 mb-2">Legal</h5>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-amber-500 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-amber-500 transition-all duration-300" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-sans text-sm tracking-widest uppercase text-emerald-900 dark:text-stone-100 mb-2">Explore</h5>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-amber-500 transition-all duration-300" href="#">Press Kit</a>
+<a class="font-sans text-sm tracking-widest uppercase text-stone-500 hover:text-amber-500 transition-all duration-300" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-6">
+<h5 class="font-sans text-sm tracking-widest uppercase text-emerald-900 dark:text-stone-100 mb-2">Connect</h5>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-amber-500" data-icon="share">share</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-amber-500" data-icon="public">public</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-amber-500" data-icon="mail">mail</span>
+</div>
+</div>
+</footer>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            // Ensure normal looping is disabled
+            video.removeAttribute('loop');
+            
+            // Extract the start time from the src hash (e.g. #t=2)
+            let startTime = 0.1;
+            if (video.src && video.src.includes('#t=')) {
+                const match = video.src.match(/#t=([0-9.]+)/);
+                if (match) {
+                    startTime = parseFloat(match[1]);
+                }
+            }
+            
+            let isReversing = false;
+            
+            setInterval(() => {
+                if (isNaN(video.duration)) return;
+
+                // If playing forward and we reach the end
+                if (!isReversing && video.currentTime >= video.duration - 0.1) {
+                    isReversing = true;
+                    video.pause();
+                } 
+                // If reversing and we reach the dynamic start time
+                else if (isReversing && video.currentTime <= startTime) {
+                    isReversing = false;
+                    video.play();
+                }
+                
+                // Manually step back to simulate reverse playback cross-browser
+                if (isReversing) {
+                    video.currentTime -= 0.05;
+                }
+            }, 50);
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggles = document.querySelectorAll('.offcanvas-toggle');
+        const closeBtn = document.getElementById('close-offcanvas');
+        const offcanvas = document.getElementById('offcanvas');
+        const overlay = document.getElementById('offcanvas-overlay');
+
+        if(offcanvas && overlay) {
+            function openOffcanvas() {
+                offcanvas.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            function closeOffcanvas() {
+                offcanvas.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+
+            toggles.forEach(toggle => {
+                const newToggle = toggle.cloneNode(true);
+                toggle.parentNode.replaceChild(newToggle, toggle);
+                newToggle.addEventListener('click', openOffcanvas);
+            });
+            
+            closeBtn.addEventListener('click', closeOffcanvas);
+            overlay.addEventListener('click', closeOffcanvas);
+        }
+    });
+</script>
+
+</body>
+
+</html>

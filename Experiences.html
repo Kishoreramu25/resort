@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e7e2d9",
+                        "secondary": "#7c563b",
+                        "inverse-surface": "#32302a",
+                        "inverse-primary": "#a1d1b8",
+                        "outline-variant": "#c0c9c2",
+                        "on-surface-variant": "#414944",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dfd9d1",
+                        "tertiary-container": "#5e3f00",
+                        "on-background": "#1d1b16",
+                        "background": "#fff9ef",
+                        "surface-container-high": "#ede7de",
+                        "tertiary": "#412a00",
+                        "primary": "#023625",
+                        "surface-variant": "#e7e2d9",
+                        "surface-container-low": "#f9f3ea",
+                        "on-secondary-fixed": "#2f1502",
+                        "outline": "#717973",
+                        "primary-fixed": "#bceed3",
+                        "primary-fixed-dim": "#a1d1b8",
+                        "on-tertiary-fixed": "#281800",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeae",
+                        "surface-bright": "#fff9ef",
+                        "on-secondary-container": "#795338",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#3a6753",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f6f0e7",
+                        "primary-container": "#1f4d3a",
+                        "tertiary-fixed-dim": "#f0be71",
+                        "surface": "#fff9ef",
+                        "secondary-fixed-dim": "#efbc9b",
+                        "on-secondary-fixed-variant": "#623f25",
+                        "on-primary-fixed-variant": "#214f3c",
+                        "on-primary-fixed": "#002114",
+                        "surface-container": "#f3ede4",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-tertiary-container": "#daab5f",
+                        "secondary-fixed": "#ffdcc6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#8dbda4",
+                        "on-surface": "#1d1b16",
+                        "secondary-container": "#fecaa8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "container-max": "1440px",
+                        "margin-edge": "64px",
+                        "unit": "8px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Cormorant Garamond"],
+                        "headline-md": ["Cormorant Garamond"],
+                        "display-lg": ["Cormorant Garamond"],
+                        "body-lg": ["Poppins"],
+                        "label-caps": ["Poppins"],
+                        "headline-lg": ["Cormorant Garamond"],
+                        "body-md": ["Poppins"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .cinematic-gradient {
+            background: linear-gradient(to top, rgba(2, 54, 37, 0.8) 0%, rgba(2, 54, 37, 0) 60%);
+        }
+        .soft-elevation {
+            box-shadow: 0 20px 40px -15px rgba(2, 54, 37, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-tertiary-fixed-dim selection:text-tertiary">
+<!-- TopNavBar -->
+<style>
+.su-nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.su-nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    border-bottom: 2px solid #023625;
+    transform: scaleX(0);
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+.su-nav-link:hover::before, .su-nav-link.active::before {
+    transform: scaleX(1);
+}
+.su-btn {
+    transition: all 0.3s ease;
+    border-radius: 50rem;
+}
+.su-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.su-icon-wrapper {
+    transition: all 0.3s ease;
+}
+.offcanvas-toggle:hover .su-icon-wrapper {
+    color: #023625;
+}
+</style>
+
+<header class="fixed top-0 left-0 w-full z-50 bg-[#fff9ef]/95 backdrop-blur-md border-b border-[#023625]/10 shadow-sm transition-all duration-500">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-16 flex justify-between items-center py-4">
+        <a href="index.html" class="text-xl md:text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl text-decoration-none">
+            The Chennai Sanctuary
+        </a>
+        <nav class="hidden lg:flex items-center space-x-10">
+            <a href="index.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">residences</a>
+            <a href="Experiences.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide active text-amber-600">experiences</a>
+            <a href="Wellness.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">wellness</a>
+            <a href="Gastronomy.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">gastronomy</a>
+        </nav>
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="#" class="su-btn hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-label-caps uppercase tracking-widest text-sm">
+                Book Now
+            </a>
+            <button class="offcanvas-toggle bg-transparent border-0 p-2 cursor-pointer flex items-center justify-center">
+                <span class="su-icon-wrapper text-emerald-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Offcanvas Sidebar -->
+<div id="offcanvas" class="fixed top-0 right-0 h-full w-[300px] sm:w-[400px] bg-[#fff9ef] shadow-2xl z-[60] translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] overflow-y-auto">
+    <div class="p-8 md:p-12 flex flex-col h-full">
+        <div class="flex justify-between items-center mb-10">
+            <div class="text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl">The Chennai Sanctuary</div>
+            <button id="close-offcanvas" class="min-w-[48px] shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover:rotate-90 transition-transform duration-400 cursor-pointer border-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+            </button>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="mb-10">
+            <ul class="flex flex-col gap-6 list-none p-0 m-0">
+                <li><a href="index.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Residences</a></li>
+                <li><a href="Experiences.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors active text-amber-600">Experiences</a></li>
+                <li><a href="Wellness.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Wellness</a></li>
+                <li><a href="Gastronomy.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Gastronomy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Offcanvas Overlay -->
+<div id="offcanvas-overlay" class="fixed inset-0 bg-black/40 z-[55] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+
+
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<video class="w-full h-full object-cover" autoplay muted playsinline src="vid2.mp4#t=1"></video>
+<div class="absolute inset-0 bg-primary/20"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-gutter">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim tracking-[0.4em] uppercase block mb-6">Curated Journeys</span>
+<h1 class="font-display-lg text-[48px] md:text-[84px] leading-tight md:leading-none text-surface-container-lowest italic mb-8">The Art of Exploration</h1>
+<p class="font-body-lg text-body-lg text-surface-container-lowest/90 max-w-2xl mx-auto">Venture beyond the ordinary into a realm of bespoke encounters, where the spirit of South India meets the pinnacle of refined adventure.</p>
+</div>
+</section>
+<main class="max-w-[1440px] mx-auto">
+<!-- Section 1: Land & Sea -->
+<section class="py-section-padding px-6 md:px-margin-edge">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24">
+<div class="col-span-12 md:col-span-5">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-4 block">Navigation</span>
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary mb-6">Land &amp; Sea</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Discover the dual nature of our coastal sanctuary. From morning sails on the Bay of Bengal to twilight treks through ancient coastal mangroves, every journey is a private dialogue with nature.</p>
+<a class="inline-flex items-center gap-4 text-primary font-label-caps text-label-caps uppercase tracking-widest group" href="#">
+                        Explore Expeditions
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+<div class="col-span-12 md:col-span-7 relative h-[400px] md:h-[600px]">
+<div class="absolute top-0 right-0 w-4/5 h-full overflow-hidden soft-elevation group">
+<img class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" data-alt="A high-fidelity wide-angle photograph of a pristine, private white-sand beach meeting crystalline turquoise water. A single, elegantly crafted wooden catamaran sits anchored near the shore. The lighting is bright and high-key, reflecting a bright mid-morning sun. The color palette centers on soft whites, vibrant emerald greens of the coastal flora, and the deep gold of the wooden boat." src="img1.jpeg"/>
+</div>
+<div class="absolute bottom-[-40px] left-0 w-2/5 h-[200px] md:h-[300px] overflow-hidden border-8 border-background soft-elevation group">
+<img class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" data-alt="A close-up shot of luxurious tropical foliage with water droplets glistening on broad, deep green leaves. The lighting is soft and cinematic, with dappled sunlight breaking through the canopy to create a play of light and shadow. The image captures the lush, humid essence of a high-end botanical sanctuary with a focus on natural textures and rich primary green tones." src="img2.jpeg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Heritage & Culture (Bento Grid) -->
+<section class="py-section-padding px-6 md:px-margin-edge bg-surface-container-low">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-4 block">Legacy</span>
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary">Heritage &amp; Culture</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-6">Immerse yourself in the living history of Tamil Nadu through private gallery viewings, masterclasses with local artisans, and sunset rituals at sacred shrines.</p>
+</div>
+<div class="grid grid-cols-12 gap-8 auto-rows-[350px] md:auto-rows-auto md:h-[800px]">
+<div class="col-span-12 md:col-span-7 h-full relative group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A majestic perspective of an ancient South Indian temple entrance with intricate stone carvings bathed in the golden light of the late afternoon sun. The shadows are deep and cinematic, highlighting the incredible architectural detail. The image reflects a sense of profound history and quiet luxury, using a palette of warm ochre stone and deep, shaded greens." src="img3.jpeg"/>
+<div class="absolute inset-0 cinematic-gradient flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-surface-container-lowest mb-2">Temple Architectural Tours</h3>
+<p class="font-body-md text-surface-container-lowest/80 max-w-md">Private, expert-led walks through the marvels of Dravidian architecture.</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 grid grid-rows-2 gap-8 h-full">
+<div class="relative group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist, high-end still life of traditional Indian bronze artifacts resting on a clean, soft cream marble surface. The lighting is soft and side-lit, emphasizing the rich, warm gold and copper tones of the metal. The composition is clean and artistic, evoking the feeling of a curated museum exhibit within a luxury resort." src="img4.jpeg"/>
+<div class="absolute inset-0 cinematic-gradient flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-surface-container-lowest mb-2">Artisan Workshops</h3>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A focused, artistic shot of a traditional dancer's hands performing a Mudra gesture, adorned with delicate gold jewelry. The background is a soft-focus deep green, creating a cinematic and spiritual mood. The lighting is precise, highlighting the elegant form and the shimmer of the gold accents against the warm skin tones." src="img5.jpeg"/>
+<div class="absolute inset-0 cinematic-gradient flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-surface-container-lowest mb-2">Classical Dance Recitals</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Private Moments -->
+<section class="py-section-padding px-6 md:px-margin-edge">
+<div class="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+<div class="w-full md:w-1/2 order-last md:order-none">
+<div class="aspect-square md:aspect-[4/5] overflow-hidden soft-elevation group">
+<img class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" data-alt="A beautifully styled dinner table for two set on a secluded wooden deck over a calm lagoon. The table features fine white linens, minimalist gold-rimmed plates, and flickering candles in glass lanterns. The surrounding water reflects the deep indigo of the night sky, and distant palm trees are silhouetted against a soft moonlit glow. The scene is intimate, exclusive, and supremely luxurious." src="img6.jpeg"/>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-4 block">Intimacy</span>
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary mb-8">Private Moments</h2>
+<div class="space-y-12">
+<div class="border-l-2 border-tertiary-fixed-dim pl-8">
+<h4 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-primary mb-2">Sunset Gastronomy</h4>
+<p class="font-body-md text-on-surface-variant">A seven-course degustation menu served under the stars, curated by our Executive Chef to match your palate.</p>
+</div>
+<div class="border-l-2 border-tertiary-fixed-dim pl-8">
+<h4 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-primary mb-2">Silent Spa Journeys</h4>
+<p class="font-body-md text-on-surface-variant">Experience a meditative wellness ritual in our floating garden pavilions, designed for absolute seclusion.</p>
+</div>
+<div class="border-l-2 border-tertiary-fixed-dim pl-8">
+<h4 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-primary mb-2">Private Cinema</h4>
+<p class="font-body-md text-on-surface-variant">A personalized screening of cinematic masterpieces on our garden lawn, accompanied by vintage champagnes.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mb-section-padding px-6 md:px-margin-edge">
+<div class="bg-primary py-24 px-12 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover" data-alt="A subtle, high-contrast black and white texture of ancient stone carvings. The image is used as a background pattern to add depth and historical context to the luxury design. The light is raking and dramatic, emphasizing the relief and tactile quality of the stone." src="img.jpeg"/>
+</div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-on-primary mb-8 italic">Begin Your Sanctuary Story</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 mb-12">Allow us to tailor an itinerary that reflects your unique desires. Our concierge curators are standing by.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-tertiary-fixed transition-colors duration-300">Inquire Now</button>
+<button class="border border-surface-container-lowest text-surface-container-lowest px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-surface-container-lowest hover:text-primary transition-all duration-300">View Brochure</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 md:py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-[1440px] mx-auto bg-stone-100 border-t border-stone-200 mt-[120px]">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-serif italic text-emerald-900 mb-6">The Chennai Sanctuary</div>
+<p class="font-body-md text-stone-500 max-w-xs lowercase">A place of rest, reflection, and unparalleled refined luxury in the heart of south india.</p>
+</div>
+<div>
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-emerald-900 mb-8 block">Quick Links</span>
+<ul class="space-y-4 font-body-md text-stone-500">
+<li><a class="hover:text-amber-500 transition-all duration-300" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-amber-500 transition-all duration-300" href="#">Terms of Service</a></li>
+<li><a class="hover:text-amber-500 transition-all duration-300" href="#">Press Kit</a></li>
+<li><a class="hover:text-amber-500 transition-all duration-300" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-emerald-900 mb-8 block">Contact</span>
+<ul class="space-y-4 font-body-md text-stone-500">
+<li>East Coast Road, Chennai</li>
+<li>reservations@chennaisanctuary.com</li>
+<li>+91 44 2345 6789</li>
+</ul>
+</div>
+<div>
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-emerald-900 mb-8 block">Follow Us</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-stone-500 hover:text-amber-500 cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-stone-500 hover:text-amber-500 cursor-pointer" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined text-stone-500 hover:text-amber-500 cursor-pointer" data-icon="video_library">video_library</span>
+</div>
+<p class="mt-8 font-label-caps text-[10px] text-stone-400">© 2024 The Chennai Sanctuary. An Unparalleled Retreat.</p>
+</div>
+</footer>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            // Ensure normal looping is disabled
+            video.removeAttribute('loop');
+            
+            // Extract the start time from the src hash (e.g. #t=2)
+            let startTime = 0.1;
+            if (video.src && video.src.includes('#t=')) {
+                const match = video.src.match(/#t=([0-9.]+)/);
+                if (match) {
+                    startTime = parseFloat(match[1]);
+                }
+            }
+            
+            let isReversing = false;
+            
+            setInterval(() => {
+                if (isNaN(video.duration)) return;
+
+                // If playing forward and we reach the end
+                if (!isReversing && video.currentTime >= video.duration - 0.1) {
+                    isReversing = true;
+                    video.pause();
+                } 
+                // If reversing and we reach the dynamic start time
+                else if (isReversing && video.currentTime <= startTime) {
+                    isReversing = false;
+                    video.play();
+                }
+                
+                // Manually step back to simulate reverse playback cross-browser
+                if (isReversing) {
+                    video.currentTime -= 0.05;
+                }
+            }, 50);
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggles = document.querySelectorAll('.offcanvas-toggle');
+        const closeBtn = document.getElementById('close-offcanvas');
+        const offcanvas = document.getElementById('offcanvas');
+        const overlay = document.getElementById('offcanvas-overlay');
+
+        if(offcanvas && overlay) {
+            function openOffcanvas() {
+                offcanvas.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            function closeOffcanvas() {
+                offcanvas.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+
+            toggles.forEach(toggle => {
+                const newToggle = toggle.cloneNode(true);
+                toggle.parentNode.replaceChild(newToggle, toggle);
+                newToggle.addEventListener('click', openOffcanvas);
+            });
+            
+            closeBtn.addEventListener('click', closeOffcanvas);
+            overlay.addEventListener('click', closeOffcanvas);
+        }
+    });
+</script>
+
+</body>
+
+</html>

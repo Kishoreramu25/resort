@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Residences | The Chennai Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e7e2d9",
+                    "secondary": "#7c563b",
+                    "inverse-surface": "#32302a",
+                    "inverse-primary": "#a1d1b8",
+                    "outline-variant": "#c0c9c2",
+                    "on-surface-variant": "#414944",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dfd9d1",
+                    "tertiary-container": "#5e3f00",
+                    "on-background": "#1d1b16",
+                    "background": "#fff9ef",
+                    "surface-container-high": "#ede7de",
+                    "tertiary": "#412a00",
+                    "primary": "#023625",
+                    "surface-variant": "#e7e2d9",
+                    "surface-container-low": "#f9f3ea",
+                    "on-secondary-fixed": "#2f1502",
+                    "outline": "#717973",
+                    "primary-fixed": "#bceed3",
+                    "primary-fixed-dim": "#a1d1b8",
+                    "on-tertiary-fixed": "#281800",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdeae",
+                    "surface-bright": "#fff9ef",
+                    "on-secondary-container": "#795338",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#3a6753",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f6f0e7",
+                    "primary-container": "#1f4d3a",
+                    "tertiary-fixed-dim": "#f0be71",
+                    "surface": "#fff9ef",
+                    "secondary-fixed-dim": "#efbc9b",
+                    "on-secondary-fixed-variant": "#623f25",
+                    "on-primary-fixed-variant": "#214f3c",
+                    "on-primary-fixed": "#002114",
+                    "surface-container": "#f3ede4",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "on-tertiary-container": "#daab5f",
+                    "secondary-fixed": "#ffdcc6",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#8dbda4",
+                    "on-surface": "#1d1b16",
+                    "secondary-container": "#fecaa8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "container-max": "1440px",
+                    "margin-edge": "64px",
+                    "unit": "8px",
+                    "section-padding": "120px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Cormorant Garamond"],
+                    "headline-md": ["Cormorant Garamond"],
+                    "display-lg": ["Cormorant Garamond"],
+                    "body-lg": ["Poppins"],
+                    "label-caps": ["Poppins"],
+                    "headline-lg": ["Cormorant Garamond"],
+                    "body-md": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-xl": ["60px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .backdrop-blur-luxury {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .mask-gradient {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopNavBar -->
+<style>
+.su-nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.su-nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    border-bottom: 2px solid #023625;
+    transform: scaleX(0);
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+.su-nav-link:hover::before, .su-nav-link.active::before {
+    transform: scaleX(1);
+}
+.su-btn {
+    transition: all 0.3s ease;
+    border-radius: 50rem;
+}
+.su-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.su-icon-wrapper {
+    transition: all 0.3s ease;
+}
+.offcanvas-toggle:hover .su-icon-wrapper {
+    color: #023625;
+}
+</style>
+
+<header class="fixed top-0 left-0 w-full z-50 bg-[#fff9ef]/95 backdrop-blur-md border-b border-[#023625]/10 shadow-sm transition-all duration-500">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-16 flex justify-between items-center py-4">
+        <a href="index.html" class="text-xl md:text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl text-decoration-none">
+            The Chennai Sanctuary
+        </a>
+        <nav class="hidden lg:flex items-center space-x-10">
+            <a href="index.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide active text-amber-600">residences</a>
+            <a href="Experiences.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">experiences</a>
+            <a href="Wellness.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">wellness</a>
+            <a href="Gastronomy.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">gastronomy</a>
+        </nav>
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="#" class="su-btn hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-label-caps uppercase tracking-widest text-sm">
+                Book Now
+            </a>
+            <button class="offcanvas-toggle bg-transparent border-0 p-2 cursor-pointer flex items-center justify-center">
+                <span class="su-icon-wrapper text-emerald-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Offcanvas Sidebar -->
+<div id="offcanvas" class="fixed top-0 right-0 h-full w-[300px] sm:w-[400px] bg-[#fff9ef] shadow-2xl z-[60] translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] overflow-y-auto">
+    <div class="p-8 md:p-12 flex flex-col h-full">
+        <div class="flex justify-between items-center mb-10">
+            <div class="text-2xl font-light tracking-tighter text-emerald-900 font-headline-xl">The Chennai Sanctuary</div>
+            <button id="close-offcanvas" class="min-w-[48px] shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover:rotate-90 transition-transform duration-400 cursor-pointer border-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+            </button>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="mb-10">
+            <ul class="flex flex-col gap-6 list-none p-0 m-0">
+                <li><a href="index.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors active text-amber-600">Residences</a></li>
+                <li><a href="Experiences.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Experiences</a></li>
+                <li><a href="Wellness.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Wellness</a></li>
+                <li><a href="Gastronomy.html" class="font-headline-md text-2xl text-emerald-900 hover:text-amber-600 transition-colors ">Gastronomy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Offcanvas Overlay -->
+<div id="offcanvas-overlay" class="fixed inset-0 bg-black/40 z-[55] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+
+
+<!-- Hero Section -->
+<section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<video class="w-full h-full object-cover" autoplay muted playsinline src="Luxury_resort_exterior_interior_…_202605021812.mp4"></video>
+<div class="absolute inset-0 bg-primary/30"></div>
+</div>
+<div id="hero-content" class="relative z-10 text-center px-6 opacity-0 transition-opacity duration-[2000ms]">
+<h1 class="font-display-lg text-[48px] md:text-[84px] leading-tight md:leading-none text-white text-shadow-subtle mb-6">sanctuary of soul.</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto italic">Where the whispers of the ocean meet architectural timelessness.</p>
+</div>
+<div id="hero-arrow" class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 animate-bounce opacity-0 transition-opacity duration-[2000ms]">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="expand_more">expand_more</span>
+</div>
+</section>
+<main class="max-w-[1440px] mx-auto overflow-hidden">
+<!-- Introductory Section -->
+<section class="py-[120px] px-6 md:px-margin-edge bg-surface-container-low flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+<div class="md:w-1/2">
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary mb-8 leading-tight">redefining the art of private living.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Our residences are more than mere villas; they are curated retreats designed to harmonize with the rhythmic tides of Chennai’s coastline. Every space is a masterpiece of light and shadow, crafted from indigenous materials and refined with modern luxury.</p>
+<div class="flex flex-col sm:flex-row gap-8 md:gap-12">
+<div>
+<span class="block font-label-caps text-label-caps text-tertiary mb-2">Total Privacy</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Isolated havens with zero shared walls.</p>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-tertiary mb-2">Bespoke Service</span>
+<p class="font-body-md text-body-md text-on-surface-variant">24/7 personalized butler assistance.</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<div class="aspect-square md:aspect-[4/5] bg-surface-container-highest overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="A close-up interior detail of a luxury villa bedroom featuring high-quality linen bedding in soft cream and sand tones. A large sliding glass door reveals a private garden with lush tropical greenery. The afternoon sun casts long, soft shadows across a polished stone floor, emphasizing a minimalist yet warm aesthetic. The scene is quiet, elegant, and perfectly balanced." src="img1.jpeg"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-container p-8 hidden lg:flex items-center justify-center">
+<p class="text-on-primary-container font-headline-md text-[24px] md:text-[32px] leading-snug text-center">est. 2024</p>
+</div>
+</div>
+</section>
+<!-- Residence Categories: Bento Grid -->
+<section class="py-[120px] px-6 md:px-margin-edge">
+<div class="mb-16">
+<h3 class="font-label-caps text-label-caps text-tertiary tracking-[0.3em] uppercase mb-4">the collection</h3>
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary">choose your horizon.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Ocean View Villa (Main Focus) -->
+<div class="md:col-span-8 group relative aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A sprawling ocean-front luxury villa with an expansive wooden deck and a private infinity pool that appears to merge with the turquoise waters of the sea. The architecture is a blend of modern minimalism and traditional coastal elements. High-end outdoor furniture in muted earth tones is arranged for relaxation. The lighting is bright and airy, capturing the essence of a perfect tropical morning." src="img2.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 p-12 text-white">
+<h4 class="font-headline-lg text-[32px] md:text-[48px] leading-tight mb-2">The Azure Pavilion</h4>
+<p class="font-body-md text-body-md text-white/80 max-w-md mb-6">Direct access to the Bay of Bengal with private beach frontage and an infinity edge that defies perception.</p>
+<button class="border border-white/40 px-6 py-2 font-label-caps text-[10px] uppercase tracking-widest hover:bg-white hover:text-primary transition-all">Explore Pavilion</button>
+</div>
+</div>
+<!-- Tropical Garden Villa -->
+<div class="md:col-span-4 group relative aspect-square md:aspect-auto overflow-hidden shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A secluded garden villa surrounded by dense, vibrant tropical foliage and exotic flowering plants. A private stone pathway leads to a traditional wooden door. The atmosphere is intimate and cool, with dappled sunlight filtering through the canopy of large palm fronds. The color palette is dominated by deep greens and rich wood browns, creating a sense of hidden luxury." src="img3.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-8 text-white">
+<h4 class="font-headline-md text-[24px] md:text-[32px] leading-snug mb-2">Botanical Sanctuary</h4>
+<p class="font-body-md text-body-md text-white/80 mb-6">Enveloped by ancestral trees and curated blooms for ultimate seclusion.</p>
+<button class="border border-white/40 px-6 py-2 font-label-caps text-[10px] uppercase tracking-widest hover:bg-white hover:text-primary transition-all">Explore Sanctuary</button>
+</div>
+</div>
+<!-- Amenity Feature 1 -->
+<div class="md:col-span-4 bg-primary p-12 flex flex-col justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl mb-6" data-icon="spa">spa</span>
+<h5 class="font-headline-md text-[24px] md:text-[32px] leading-snug text-white mb-4">Personalized Wellness</h5>
+<p class="font-body-md text-body-md text-white/70 mb-6">In-villa spa rituals tailored to your circadian rhythm, utilizing local organic oils and traditional techniques.</p>
+<hr class="border-white/10 w-12"/>
+</div>
+<!-- Amenity Feature 2 -->
+<div class="md:col-span-8 group relative aspect-square md:aspect-[21/9] overflow-hidden shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A modern gourmet villa kitchen with sleek dark stone countertops and high-end built-in appliances. A personal chef in a white uniform is meticulously plating a delicate seafood dish. Large windows in the background reveal a sunset view. The lighting is focused and warm, highlighting the textures of the food and the premium materials of the interior space." src="img4.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent flex items-center p-16">
+<div class="max-w-sm text-white">
+<h5 class="font-headline-md text-[24px] md:text-[32px] leading-snug mb-4">Culinary Intimacy</h5>
+<p class="font-body-md text-body-md text-white/70">A private chef at your service, crafting hyper-local menus from the day's catch and sanctuary gardens.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Amenities Detailed Grid -->
+<section class="py-[120px] px-6 md:px-margin-edge bg-surface">
+<div class="max-w-4xl mx-auto text-center mb-20">
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-6">the sanctuary standard.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Exceptional living requires an obsession with detail. Every residence is equipped with amenities that transcend the ordinary.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-12">
+<div class="text-center group">
+<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="concierge">concierge</span>
+</div>
+<h6 class="font-label-caps text-label-caps text-primary mb-2">Dedicated Butler</h6>
+<p class="text-[14px] text-on-surface-variant">Anticipatory service 24/7.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="pool">pool</span>
+</div>
+<h6 class="font-label-caps text-label-caps text-primary mb-2">Private Infinity Pool</h6>
+<p class="text-[14px] text-on-surface-variant">Temperature controlled &amp; ozone filtered.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="wine_bar">wine_bar</span>
+</div>
+<h6 class="font-label-caps text-label-caps text-primary mb-2">Curated Cellar</h6>
+<p class="text-[14px] text-on-surface-variant">In-villa private bar &amp; vintage selection.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="air">air</span>
+</div>
+<h6 class="font-label-caps text-label-caps text-primary mb-2">Climate Harmony</h6>
+<p class="text-[14px] text-on-surface-variant">Smart environmental controls.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 md:py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-[1440px] mx-auto bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 mt-[120px] mb-24">
+<div class="col-span-1">
+<span class="text-xl font-serif italic text-emerald-900 dark:text-stone-50 block mb-6">The Chennai Sanctuary</span>
+<p class="text-stone-500 font-sans text-sm tracking-widest uppercase Poppins">© 2024 The Chennai Sanctuary. An Unparalleled Retreat.</p>
+</div>
+<div class="col-span-1">
+<h5 class="text-emerald-900 dark:text-stone-100 font-sans text-sm tracking-widest uppercase Poppins mb-6">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="index.html">Residences</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="Experiences.html">Experiences</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="Wellness.html">Wellness</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="Gastronomy.html">Gastronomy</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="text-emerald-900 dark:text-stone-100 font-sans text-sm tracking-widest uppercase Poppins mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="#">Privacy Policy</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="#">Terms of Service</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="#">Press Kit</a></li>
+<li><a class="text-stone-500 hover:text-amber-500 transition-all duration-300 font-sans text-sm tracking-widest uppercase Poppins" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="text-emerald-900 dark:text-stone-100 font-sans text-sm tracking-widest uppercase Poppins mb-6">Newsletter</h5>
+<p class="text-stone-500 text-xs mb-4 uppercase tracking-widest leading-loose">Join our list for exclusive invitations and retreat updates.</p>
+<div class="relative border-b border-emerald-900/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm font-sans uppercase tracking-widest" placeholder="Your Email" type="email"/>
+<button class="absolute right-0 top-0 material-symbols-outlined text-emerald-900" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            const heroContent = document.getElementById('hero-content');
+            const heroArrow = document.getElementById('hero-arrow');
+            if (heroContent) heroContent.classList.remove('opacity-0');
+            if (heroArrow) heroArrow.classList.remove('opacity-0');
+        }, 4000);
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            // Ensure normal looping is disabled
+            video.removeAttribute('loop');
+            
+            // Extract the start time from the src hash (e.g. #t=2)
+            let startTime = 0.1;
+            if (video.src && video.src.includes('#t=')) {
+                const match = video.src.match(/#t=([0-9.]+)/);
+                if (match) {
+                    startTime = parseFloat(match[1]);
+                }
+            }
+            
+            let isReversing = false;
+            
+            setInterval(() => {
+                if (isNaN(video.duration)) return;
+
+                // If playing forward and we reach the end
+                if (!isReversing && video.currentTime >= video.duration - 0.1) {
+                    isReversing = true;
+                    video.pause();
+                } 
+                // If reversing and we reach the dynamic start time
+                else if (isReversing && video.currentTime <= startTime) {
+                    isReversing = false;
+                    video.play();
+                }
+                
+                // Manually step back to simulate reverse playback cross-browser
+                if (isReversing) {
+                    video.currentTime -= 0.05;
+                }
+            }, 50);
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggles = document.querySelectorAll('.offcanvas-toggle');
+        const closeBtn = document.getElementById('close-offcanvas');
+        const offcanvas = document.getElementById('offcanvas');
+        const overlay = document.getElementById('offcanvas-overlay');
+
+        if(offcanvas && overlay) {
+            function openOffcanvas() {
+                offcanvas.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            function closeOffcanvas() {
+                offcanvas.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+
+            toggles.forEach(toggle => {
+                const newToggle = toggle.cloneNode(true);
+                toggle.parentNode.replaceChild(newToggle, toggle);
+                newToggle.addEventListener('click', openOffcanvas);
+            });
+            
+            closeBtn.addEventListener('click', closeOffcanvas);
+            overlay.addEventListener('click', closeOffcanvas);
+        }
+    });
+</script>
+
+</body>
+
+</html>
