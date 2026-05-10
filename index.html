@@ -213,6 +213,129 @@
 <span class="material-symbols-outlined text-white text-3xl" data-icon="expand_more">expand_more</span>
 </div>
 </section>
+<section class="py-16 px-6 md:px-margin-edge bg-background">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
+<img src="menuu2.jpeg" alt="Menu Preview 1" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
+</div>
+<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
+<img src="menuuu.jpeg" alt="Menu Preview 2" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
+</div>
+<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
+<img src="menu3.jpeg" alt="Menu Preview 3" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
+</div>
+</div>
+</section>
+
+<!-- Pricing & Packages Section -->
+<section class="py-[120px] px-6 md:px-margin-edge bg-surface-container-highest">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-4">Stay & Experience</h2>
+<p class="font-body-lg text-on-surface-variant">Simple, transparent pricing for your ultimate sanctuary retreat.</p>
+</div>
+
+<div class="flex flex-col gap-8 mb-16">
+    <!-- Menu Item 1 -->
+    <div class="flex flex-col gap-2 border-b border-primary/20 pb-4 group">
+        <div class="flex justify-between items-baseline">
+            <h4 class="font-headline-md text-2xl md:text-3xl text-primary group-hover:text-amber-600 transition-colors">One Room</h4>
+            <span class="font-body-lg text-xl text-amber-600">₹3,000</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic">Perfect for couples seeking a private coastal escape.</p>
+    </div>
+    <!-- Menu Item 2 -->
+    <div class="flex flex-col gap-2 border-b border-primary/20 pb-4 group">
+        <div class="flex justify-between items-baseline">
+            <h4 class="font-headline-md text-2xl md:text-3xl text-primary group-hover:text-amber-600 transition-colors">Two Rooms</h4>
+            <span class="font-body-lg text-xl text-amber-600">₹6,000</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic">Ideal for families or small groups wanting connected luxury.</p>
+    </div>
+    <!-- Menu Item 3 -->
+    <div class="flex flex-col gap-2 border-b border-primary/20 pb-4 group">
+        <div class="flex justify-between items-baseline">
+            <h4 class="font-headline-md text-2xl md:text-3xl text-primary group-hover:text-amber-600 transition-colors">Campfire</h4>
+            <span class="font-body-lg text-xl text-amber-600">₹1,000</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic">A private evening setup under the stars by the ocean.</p>
+    </div>
+    <!-- Menu Item 4 -->
+    <div class="flex flex-col gap-2 border-b border-primary/20 pb-4 group">
+        <div class="flex justify-between items-baseline">
+            <h4 class="font-headline-md text-2xl md:text-3xl text-primary group-hover:text-amber-600 transition-colors">Campfire + DJ</h4>
+            <span class="font-body-lg text-xl text-amber-600">Custom</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic">Elevate your evening with a curated music experience.</p>
+    </div>
+</div>
+
+<div class="mt-16 bg-surface p-8 md:p-12 rounded-2xl shadow-xl border border-outline-variant/30">
+    <div class="text-center mb-10">
+        <h3 class="font-headline-md text-3xl md:text-4xl text-primary mb-3">Request Your Booking</h3>
+        <p class="font-body-md text-on-surface-variant">Fill out the details below to connect with our concierge instantly via WhatsApp.</p>
+    </div>
+    <form id="booking-form" class="space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="b-name" class="block font-label-caps text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">Full Name</label>
+                <input type="text" id="b-name" required class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-on-surface">
+            </div>
+            <div>
+                <label for="b-email" class="block font-label-caps text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">Email Address</label>
+                <input type="email" id="b-email" required class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-on-surface">
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="b-days" class="block font-label-caps text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">No. of Days</label>
+                <input type="number" min="1" id="b-days" required class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-on-surface">
+            </div>
+            <div>
+                <label for="b-rooms" class="block font-label-caps text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">No. of Rooms</label>
+                <select id="b-rooms" required class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-on-surface appearance-none">
+                    <option value="1 Room">1 Room</option>
+                    <option value="2 Rooms">2 Rooms</option>
+                    <option value="Both (Whole property)">Both Rooms</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label for="b-queries" class="block font-label-caps text-[10px] text-primary mb-2 uppercase tracking-widest font-bold">Additional Queries (Campfire, DJ, etc.)</label>
+            <textarea id="b-queries" rows="3" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder-on-surface-variant/50 text-on-surface" placeholder="Let us know if you'd like to add a campfire, DJ, or have any special requests..."></textarea>
+        </div>
+        <div class="text-center pt-4">
+            <button type="button" onclick="sendToWhatsApp()" class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-label-caps tracking-widest text-sm px-10 py-4 rounded-full hover:bg-[#1EBE5D] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300 w-full sm:w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                Book via WhatsApp
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+function sendToWhatsApp() {
+    const name = document.getElementById('b-name').value;
+    const email = document.getElementById('b-email').value;
+    const days = document.getElementById('b-days').value;
+    const rooms = document.getElementById('b-rooms').value;
+    const queries = document.getElementById('b-queries').value;
+
+    if(!name || !email || !days) {
+        alert("Please fill in your name, email, and number of days to proceed.");
+        return;
+    }
+
+    const message = `*New Booking Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*No. of Days:* ${days}%0A*Rooms:* ${rooms}%0A*Additional Queries:* ${queries}`;
+    
+    // Replace with the actual resort WhatsApp number
+    const phoneNumber = "919876543210"; 
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+}
+</script>
+
+</div>
+</section>
+
 <main class="max-w-[1440px] mx-auto overflow-hidden">
 <!-- Introductory Section -->
 <section class="py-[120px] px-6 md:px-margin-edge bg-surface-container-low flex flex-col md:flex-row gap-10 md:gap-16 items-center">
@@ -286,43 +409,7 @@
 </div>
 </section>
 
-<!-- Amenities Detailed Grid -->
-<section class="py-[120px] px-6 md:px-margin-edge bg-surface">
-<div class="max-w-4xl mx-auto text-center mb-20">
-<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-6">the sanctuary standard.</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Exceptional living requires an obsession with detail. Every residence is equipped with amenities that transcend the ordinary.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-12">
-<div class="text-center group">
-<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
-<span class="material-symbols-outlined text-secondary" data-icon="concierge">concierge</span>
-</div>
-<h6 class="font-label-caps text-label-caps text-primary mb-2">Dedicated Butler</h6>
-<p class="text-[14px] text-on-surface-variant">Anticipatory service 24/7.</p>
-</div>
-<div class="text-center group">
-<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
-<span class="material-symbols-outlined text-secondary" data-icon="pool">pool</span>
-</div>
-<h6 class="font-label-caps text-label-caps text-primary mb-2">Private Infinity Pool</h6>
-<p class="text-[14px] text-on-surface-variant">Temperature controlled &amp; ozone filtered.</p>
-</div>
-<div class="text-center group">
-<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
-<span class="material-symbols-outlined text-secondary" data-icon="wine_bar">wine_bar</span>
-</div>
-<h6 class="font-label-caps text-label-caps text-primary mb-2">Curated Cellar</h6>
-<p class="text-[14px] text-on-surface-variant">In-villa private bar &amp; vintage selection.</p>
-</div>
-<div class="text-center group">
-<div class="w-16 h-16 rounded-full border border-secondary/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/5 transition-colors">
-<span class="material-symbols-outlined text-secondary" data-icon="air">air</span>
-</div>
-<h6 class="font-label-caps text-label-caps text-primary mb-2">Climate Harmony</h6>
-<p class="text-[14px] text-on-surface-variant">Smart environmental controls.</p>
-</div>
-</div>
-</section>
+
 </main>
 <!-- Footer -->
 <footer class="w-full py-12 md:py-20 px-6 md:px-16 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-[1440px] mx-auto bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 mt-[120px] mb-24">
