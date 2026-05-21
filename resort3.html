@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Residences | The Chennai Sanctuary</title>
+<title>Resort 3 | The Chennai Sanctuary</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -108,6 +108,38 @@
         .mask-gradient {
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
+        /* Crop out Gemini watermarks from bottom-right */
+        .crop-gemini {
+            transform: scale(1.18) !important;
+            transform-origin: top left !important;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .group:hover .crop-gemini,
+        .crop-gemini:hover {
+            transform: scale(1.28) !important;
+        }
+        /* Interactive Live Location Button Animations */
+        @keyframes location-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(2, 54, 37, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(2, 54, 37, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(2, 54, 37, 0);
+            }
+        }
+        .btn-pulse {
+            animation: location-pulse 2.2s infinite;
+        }
+        .btn-location:hover svg {
+            animation: pin-bounce 0.6s ease infinite alternate;
+        }
+        @keyframes pin-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
+        }
         /* Crop out Gemini watermarks from video */
         .crop-video-gemini {
             transform: scale(1.18) !important;
@@ -160,8 +192,8 @@
         <nav class="hidden lg:flex items-center space-x-10">
             <a href="resort1.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">resort 1</a>
             <a href="resort2.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">resort 2</a>
-            <a href="resort3.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">resort 3</a>
-            <a href="index.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide active text-amber-600">residences</a>
+            <a href="resort3.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide active text-amber-600">resort 3</a>
+            <a href="index.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">residences</a>
             <a href="Experiences.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">experiences</a>
             <a href="Wellness.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">wellness</a>
             <a href="Gastronomy.html" class="su-nav-link font-headline-md text-emerald-900 hover:text-primary lowercase tracking-wide ">gastronomy</a>
@@ -199,7 +231,7 @@
                 <ul class="flex flex-col gap-5 list-none p-0 m-0">
                     <li><a href="resort1.html" class="font-headline-md text-3xl text-emerald-900 hover:text-amber-600 transition-colors">Resort 1</a></li>
                     <li><a href="resort2.html" class="font-headline-md text-3xl text-emerald-900 hover:text-amber-600 transition-colors">Resort 2</a></li>
-                    <li><a href="resort3.html" class="font-headline-md text-3xl text-emerald-900 hover:text-amber-600 transition-colors">Resort 3</a></li>
+                    <li><a href="resort3.html" class="font-headline-md text-3xl text-amber-600 font-semibold transition-colors">Resort 3</a></li>
                 </ul>
             </div>
             
@@ -210,7 +242,7 @@
             <div>
                 <span class="block font-label-caps text-[10px] text-emerald-900/50 font-bold uppercase tracking-widest mb-3">Retreat Lifestyle</span>
                 <ul class="flex flex-col gap-4 list-none p-0 m-0">
-                    <li><a href="index.html" class="font-body-md text-base text-amber-600 font-semibold transition-colors">Residences</a></li>
+                    <li><a href="index.html" class="font-body-md text-base text-on-surface-variant hover:text-primary transition-colors">Residences</a></li>
                     <li><a href="Experiences.html" class="font-body-md text-base text-on-surface-variant hover:text-primary transition-colors">Experiences</a></li>
                     <li><a href="Wellness.html" class="font-body-md text-base text-on-surface-variant hover:text-primary transition-colors">Wellness</a></li>
                     <li><a href="Gastronomy.html" class="font-body-md text-base text-on-surface-variant hover:text-primary transition-colors">Gastronomy</a></li>
@@ -237,8 +269,10 @@
 <!-- Hero Section -->
 <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0 overflow-hidden">
-<video class="w-full h-full object-cover crop-video-gemini" autoplay muted playsinline src="Luxury_resort_exterior_interior_…_202605021812.mp4"></video>
-<div class="absolute inset-0 bg-primary/30"></div>
+  <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover crop-video-gemini">
+    <source src="RESORT -2/Resort 2 cover 2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 <div id="hero-content" class="relative z-10 text-center px-6 opacity-0 transition-opacity duration-[2000ms]">
 </div>
@@ -246,16 +280,92 @@
 <span class="material-symbols-outlined text-white text-3xl" data-icon="expand_more">expand_more</span>
 </div>
 </section>
-<section class="py-16 px-6 md:px-margin-edge bg-background">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
-<img src="menuu2.jpeg" alt="Menu Preview 1" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
+<section class="py-[120px] px-6 md:px-margin-edge bg-background border-t border-outline-variant/20">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h3 class="font-label-caps text-label-caps text-tertiary tracking-[0.3em] uppercase mb-4">curated escape</h3>
+<h2 class="font-headline-lg text-[32px] md:text-[48px] leading-tight text-primary mb-4">A Visual Journey of Resort 3</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto italic mb-8">Discover the architectural stillness, sun-drenched private pools, and pristine coastline of our second sanctuary.</p>
+<div class="flex justify-center">
+  <a href="https://maps.google.com?ftid=0x3b0779006fabf069:0xdee3ce0a147ab04c&entry=gps&shh=CAE&lucs=,94297699,100808508,94284463,94231188,94280568,47071704,94218641,94282134,94286869&g_st=ic" target="_blank" rel="noopener noreferrer" class="btn-location btn-pulse inline-flex items-center gap-3 bg-primary text-on-primary hover:bg-amber-600 px-8 py-3.5 rounded-full font-label-caps tracking-widest text-xs uppercase shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill transition-transform duration-300" viewBox="0 0 16 16">
+      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+    </svg>
+    See Live Location
+  </a>
 </div>
-<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
-<img src="menuuu.jpeg" alt="Menu Preview 2" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
 </div>
-<div class="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30 relative group">
-<img src="menu3.jpeg" alt="Menu Preview 3" class="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Card 1 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/2146f984-1213-47ce-b3bf-17ae438c6f16.jpg" alt="Ocean-View Lounge" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Lounge Space</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Azure Horizon Lounge</h4>
+      <p class="font-body-md text-xs text-white/80">Blending premium ocean views with architectural stillness.</p>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/4a67a22f-56d2-4d7b-9d90-bd40363da533.jpg" alt="Infinity Pool" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Wellness</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Infinity Deck</h4>
+      <p class="font-body-md text-xs text-white/80">Where the calm waters of the pool meet the endless sea.</p>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/656ca488-5305-4a91-991a-abb8122691aa.jpg" alt="Outdoor Dining" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Gastronomy</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Golden Hour Pavilion</h4>
+      <p class="font-body-md text-xs text-white/80">Al fresco dining sheltered by sea breeze and gentle palms.</p>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/788c4c20-d73d-441e-a9cd-0cfe4cc6e141.jpg" alt="Master Suite" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Residences</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Sanctuary Master Suite</h4>
+      <p class="font-body-md text-xs text-white/80">Natural linen, private garden access, and minimalist elegance.</p>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/a9bf0073-8b8a-407f-b0bb-845a29483148.jpg" alt="Ocean Villa" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Luxury Living</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">The Azure Pavilion</h4>
+      <p class="font-body-md text-xs text-white/80">Direct beach frontage with an infinity edge pool and private deck.</p>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer">
+    <img src="RESORT -2/ce847465-c3b7-4f3a-81fd-6cfe150d6ddf.jpg" alt="Garden Path" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Seclusion</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Botanical Sanctuary</h4>
+      <p class="font-body-md text-xs text-white/80">Enveloped by ancestral trees and organic paths for complete privacy.</p>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl border border-outline-variant/30 cursor-pointer md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto w-full">
+    <img src="RESORT -2/dd8b6cbf-ede9-487d-9c39-145248796e0f.jpg" alt="Chef's Kitchen" class="absolute inset-0 w-full h-full object-cover crop-gemini" />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+      <span class="font-label-caps text-[10px] text-tertiary-fixed tracking-widest uppercase mb-1">Gourmet</span>
+      <h4 class="font-headline-md text-xl md:text-2xl text-white mb-2">Culinary Space</h4>
+      <p class="font-body-md text-xs text-white/80">Hyper-local fresh menus prepared by your private sanctuary chef.</p>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -434,7 +544,7 @@ function selectAndScrollToForm(optionValue) {
 <!-- Introductory Section -->
 <section class="py-[120px] px-6 md:px-margin-edge bg-surface-container-low flex flex-col md:flex-row gap-10 md:gap-16 items-center">
 <div class="md:w-1/2">
-<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary mb-8 leading-tight">redefining the art of private living.</h2>
+<h2 class="font-headline-xl text-[40px] md:text-[60px] leading-tight text-primary mb-8 leading-tight">welcome to resort 3.</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Our residences are more than mere villas; they are curated retreats designed to harmonize with the rhythmic tides of Chennai’s coastline. Every space is a masterpiece of light and shadow, crafted from indigenous materials and refined with modern luxury.</p>
 <div class="flex flex-col sm:flex-row gap-8 md:gap-12">
 <div>
@@ -449,7 +559,7 @@ function selectAndScrollToForm(optionValue) {
 </div>
 <div class="md:w-1/2 relative">
 <div class="aspect-square md:aspect-[4/5] bg-surface-container-highest overflow-hidden shadow-2xl">
-<img class="w-full h-full object-cover transition-all duration-700 ease-in-out" data-alt="A close-up interior detail of a luxury villa bedroom featuring high-quality linen bedding in soft cream and sand tones. A large sliding glass door reveals a private garden with lush tropical greenery. The afternoon sun casts long, soft shadows across a polished stone floor, emphasizing a minimalist yet warm aesthetic. The scene is quiet, elegant, and perfectly balanced." src="img1.jpeg"/>
+<img class="w-full h-full object-cover crop-gemini transition-all duration-700 ease-in-out" data-alt="A close-up interior detail of a luxury villa bedroom featuring high-quality linen bedding in soft cream and sand tones. A large sliding glass door reveals a private garden with luxury tropical greenery. The afternoon sun casts long, soft shadows across a polished stone floor, emphasizing a minimalist yet warm aesthetic. The scene is quiet, elegant, and perfectly balanced." src="RESORT -2/788c4c20-d73d-441e-a9cd-0cfe4cc6e141.jpg"/>
 </div>
 <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-container p-8 hidden lg:flex items-center justify-center">
 <p class="text-on-primary-container font-headline-md text-[24px] md:text-[32px] leading-snug text-center">est. 2024</p>
@@ -465,19 +575,19 @@ function selectAndScrollToForm(optionValue) {
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 <!-- Ocean View Villa (Main Focus) -->
 <div class="md:col-span-8 group aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A sprawling ocean-front luxury villa with an expansive wooden deck and a private infinity pool that appears to merge with the turquoise waters of the sea. The architecture is a blend of modern minimalism and traditional coastal elements. High-end outdoor furniture in muted earth tones is arranged for relaxation. The lighting is bright and airy, capturing the essence of a perfect tropical morning." src="img2.jpeg"/>
+<img class="w-full h-full object-cover crop-gemini" data-alt="A sprawling ocean-front luxury villa with an expansive wooden deck and a private infinity pool that appears to merge with the turquoise waters of the sea. The architecture is a blend of modern minimalism and traditional coastal elements. High-end outdoor furniture in muted earth tones is arranged for relaxation. The lighting is bright and airy, capturing the essence of a perfect tropical morning." src="RESORT -2/a9bf0073-8b8a-407f-b0bb-845a29483148.jpg"/>
 </div>
 <!-- Tropical Garden Villa -->
 <div class="md:col-span-4 group aspect-square md:aspect-auto overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A secluded garden villa surrounded by dense, vibrant tropical foliage and exotic flowering plants. A private stone pathway leads to a traditional wooden door. The atmosphere is intimate and cool, with dappled sunlight filtering through the canopy of large palm fronds. The color palette is dominated by deep greens and rich wood browns, creating a sense of hidden luxury." src="img3.jpeg"/>
+<img class="w-full h-full object-cover crop-gemini" data-alt="A secluded garden villa surrounded by dense, vibrant tropical foliage and exotic flowering plants. A private stone pathway leads to a traditional wooden door. The atmosphere is intimate and cool, with dappled sunlight filtering through the canopy of large palm fronds. The color palette is dominated by deep greens and rich wood browns, creating a sense of hidden luxury." src="RESORT -2/ce847465-c3b7-4f3a-81fd-6cfe150d6ddf.jpg"/>
 </div>
 <!-- Amenity Feature 1 (Wellness Image) -->
 <div class="md:col-span-4 group aspect-square md:aspect-auto overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="In-villa spa rituals tailored to your circadian rhythm, utilizing local organic oils and traditional techniques." src="img5.jpeg"/>
+<img class="w-full h-full object-cover crop-gemini" data-alt="In-villa spa rituals tailored to your circadian rhythm, utilizing local organic oils and traditional techniques." src="RESORT -2/4a67a22f-56d2-4d7b-9d90-bd40363da533.jpg"/>
 </div>
 <!-- Amenity Feature 2 (Culinary Image) -->
 <div class="md:col-span-8 group aspect-square md:aspect-[21/9] overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A private chef at your service, crafting hyper-local menus from the day's catch and sanctuary gardens." src="img4.jpeg"/>
+<img class="w-full h-full object-cover crop-gemini" data-alt="A private chef at your service, crafting hyper-local menus from the day's catch and sanctuary gardens." src="RESORT -2/dd8b6cbf-ede9-487d-9c39-145248796e0f.jpg"/>
 </div>
 </div>
 </section>
@@ -522,54 +632,13 @@ function selectAndScrollToForm(optionValue) {
 </footer>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // Fade in hero text
         setTimeout(function() {
             const heroContent = document.getElementById('hero-content');
             const heroArrow = document.getElementById('hero-arrow');
             if (heroContent) heroContent.classList.remove('opacity-0');
             if (heroArrow) heroArrow.classList.remove('opacity-0');
-        }, 4000);
-    });
-</script>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            // Ensure normal looping is disabled
-            video.removeAttribute('loop');
-            
-            // Extract the start time from the src hash (e.g. #t=2)
-            let startTime = 0.1;
-            if (video.src && video.src.includes('#t=')) {
-                const match = video.src.match(/#t=([0-9.]+)/);
-                if (match) {
-                    startTime = parseFloat(match[1]);
-                }
-            }
-            
-            let isReversing = false;
-            
-            setInterval(() => {
-                if (isNaN(video.duration)) return;
-
-                // If playing forward and we reach the end
-                if (!isReversing && video.currentTime >= video.duration - 0.1) {
-                    isReversing = true;
-                    video.pause();
-                } 
-                // If reversing and we reach the dynamic start time
-                else if (isReversing && video.currentTime <= startTime) {
-                    isReversing = false;
-                    video.play();
-                }
-                
-                // Manually step back to simulate reverse playback cross-browser
-                if (isReversing) {
-                    video.currentTime -= 0.05;
-                }
-            }, 50);
-        });
+        }, 1500);
     });
 </script>
 
